@@ -167,6 +167,11 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /*
+      Generate PDF files to import data
+      */
+        Barryvdh\DomPDF\serviceProvider::class,
+
     ],
 
     /*

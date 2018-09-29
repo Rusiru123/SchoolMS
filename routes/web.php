@@ -94,3 +94,39 @@ Route::get('/std', 'studentController@show');
 Route::get('/delete', 'studentController@destroy');
 Route::get('/fee', 'studentController@store');
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+//Exam_Management
+
+
+Route::get('/','PagesController@index' );
+//Route::get('pages.Result_Management', ['as' => 'pages.Result_Management','uses'=>'PagesController@Result_Management']);
+//Route::get('pages.Subject_Management', ['as' => 'pages.Subject_Management','uses'=>'PagesController@Subject_Management']);
+
+
+
+Route::get('Result_Management','PagesManageController@Result_Management' );
+Route::get('Subject_Management','PagesManageController@Subject_Management');
+Route::get('search','PagesManageController@search');
+Route::get('SubjectsView','PagesManageController@SubjectsView');
+
+
+
+Route::post('Result_Management/submit','MessagesController@submit');
+
+Route::post('Subject_Management/submit','SuggestionsController@submit');
+
+Route::resource('subjects','SubjectsController');
+
+
+Route::resource('results','ResultsController');
+
+Route::get('/getPDF','PDFController@getPDF');
+Route::get('/generatePDF','PDFController@generatePDF');
+
+Route::get('queries','QueryController@search');
+
+Auth::routes();
+
+//Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeManageController@index')->name('home');
